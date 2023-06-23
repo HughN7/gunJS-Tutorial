@@ -6,8 +6,8 @@
 
   //Local storage
   type Todo = {
-    title: string | null;
-    done: boolean | null;
+    title: string;
+    done: boolean;
   };
 
   let store: Record<string, Todo> = {};
