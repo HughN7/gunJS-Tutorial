@@ -32,9 +32,9 @@
 
   //Write data to gun
   let input: string = "";
-  function create(key: string) {
+  function create() {
     if (input == "") return;
-    gun.get(key).put({ title: key, done: false });
+    gun.get(input).put({ title: input, done: false });
     input = "";
   }
 
@@ -50,7 +50,7 @@
 <input placeholder="add todo" bind:value={input} />
 <button
   on:click={() => {
-    create(input);
+    create();
   }}>Add</button
 >
 completed {done}/{todos.length}
