@@ -13,6 +13,7 @@
   let store: Record<string, Todo> = {};
 
   //make a listener that goes through all keys in to `gun_id` node in the db
+  //THE .map() IS NOT JS/TS's .map() -> it's from GunJS
   gun.map().on((todo: Todo, key: string) => {
     if (todo) {
       //update the local store with the new value
@@ -34,7 +35,7 @@
   let input: string = "";
   function create() {
     if (input == "") return;
-    gun.get(input).put({ title: input, done: false });
+    gun.get(input as any).put({ title: input, done: false }); //if you use gun.set here with TS, it gives linter error
     input = "";
   }
 
