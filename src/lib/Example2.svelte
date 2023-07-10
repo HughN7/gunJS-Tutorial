@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 
   const db_id: string = "t4";
-  const db = Gun().get(db_id);
+  export const db = Gun().get(db_id);
 
   //DB Key
   const state: string = "state";
